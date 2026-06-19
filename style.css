@@ -602,6 +602,9 @@ section h2::after {
   text-align: center;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 .service-card:hover {
@@ -727,4 +730,365 @@ footer a {
 footer a:hover {
   color: var(--accent-color);
   text-decoration: underline;
+}
+
+/* ===================================================================
+   SEO dépannage : navigation inter-pages, pages service, FAQ, CTA appel
+   =================================================================== */
+
+/* Navigation principale */
+.site-nav {
+  background-color: var(--white);
+  border-bottom: 1px solid #e8e8e8;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+.site-nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--accent-color);
+}
+
+/* Fil d'ariane */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  padding: 0 2rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '›';
+  margin-left: 0.4rem;
+  color: #999;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: #777;
+}
+
+/* Bouton d'appel (click-to-call) */
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color-dark);
+  color: var(--white);
+}
+
+.btn-call svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Section d'introduction d'une page service */
+.service-intro {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.service-intro h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+}
+
+.service-intro p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grilles d'information (interventions, atouts) */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.info-card p {
+  font-size: 0.98rem;
+}
+
+/* Liste à puces stylée */
+.check-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem 2rem;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1.05rem;
+}
+
+.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Étapes du déroulé d'intervention */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  counter-reset: step;
+}
+
+.step {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Bande CTA appel */
+.cta-band {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--white);
+  text-align: center;
+  border-radius: 15px;
+  padding: 2.5rem 1.5rem;
+}
+
+.cta-band h2 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.cta-band h2::after {
+  background-color: var(--accent-color);
+}
+
+.cta-band p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+/* FAQ (accordéon natif) */
+.faq details {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq summary {
+  cursor: pointer;
+  padding: 1.25rem 3rem 1.25rem 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  list-style: none;
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: var(--accent-color);
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: '−';
+}
+
+.faq details > p {
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+}
+
+/* Liens vers les autres services */
+.related-services ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.related-services a {
+  display: block;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.related-services a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: var(--secondary-color);
+}
+
+/* Le bouton flottant sert désormais à appeler */
+.floating-contact-btn {
+  font-weight: 700;
+}
+
+/* Barre d'appel fixe en bas d'écran sur mobile */
+.mobile-call-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-call-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.9rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-call-bar svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* On masque le bouton flottant rond au profit de la barre fixe */
+  .floating-contact-btn {
+    display: none;
+  }
+
+  /* Laisser respirer le bas de page sous la barre fixe */
+  body {
+    padding-bottom: 3.75rem;
+  }
+
+  .service-intro h1 {
+    font-size: 1.7rem;
+  }
+
+  .breadcrumb {
+    padding: 0 1rem;
+  }
 }

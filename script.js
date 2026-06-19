@@ -58,6 +58,10 @@ function loadCarouselImages(carouselId) {
   }
 
   const carousel = document.querySelector(`#${carouselId} .carousel`);
+  if (!carousel) {
+    // Le carrousel n'existe pas sur cette page : on ignore silencieusement.
+    return;
+  }
   const track = carousel.querySelector('.carousel-track');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('.lightbox-content');
@@ -160,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Gestion du bouton de contact flottant
 function initFloatingButton() {
   const floatingBtn = document.querySelector('.floating-contact-btn');
+  if (!floatingBtn) return;
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
@@ -170,6 +175,7 @@ function initFloatingButton() {
 // Gestion de la lightbox
 function initLightbox() {
   const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.querySelector('.lightbox-caption');
   const closeBtn = document.querySelector('.lightbox-close');
