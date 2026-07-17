@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import UrgentBanner from "../components/UrgentBanner.astro";
+import PhoneButton from "../components/PhoneButton.astro";
+import ServiceIcon from "../components/ServiceIcon.astro";
+import Faq from "../components/Faq.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Suppliers from "../components/Suppliers.astro";
+import { md } from "../lib/md.ts";
+import { localBusiness } from "../lib/jsonld.ts";
+import site from "../lib/site.ts";
+import seo from "../data/seo.json";
+import home from "../data/home.json";
+---
+
+<Base
+  title={home.metaTitle}
+  description={home.metaDescription}
+  canonical="https://jrenov.net/"
+  current="/"
+  twitter={true}
+  preloadHeaderImage={true}
+  portraitAlt="Jean René Drouet, artisan dépanneur à Vannes"
+  jsonLd={[localBusiness(site, seo)]}
+>
+  <UrgentBanner slot="subnav" strong={home.bannerStrong} mid={home.bannerMid} />
+
+  <section class="service-intro">
+    <h1>{home.heroTitle}</h1>
+    <Fragment set:html={md(home.heroIntro)} />
+    <PhoneButton />
+  </section>
+
+  <section class="services-urgence">
+    <h2>{home.servicesHeading}</h2>
+    <div class="services-grid">
+      {home.serviceCards.map((c) => (
+        <a class="service-card" href={c.url}>
+          <div class="service-icon"><ServiceIcon name={c.icon} /></div>
+          <h3>{c.title}</h3>
+          <p>{c.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="presentation">
+    <h2>{home.presentationHeading}</h2>
+    <Fragment set:html={md(home.presentation)} />
+    <p class="slogan">{home.slogan}</p>
+  </section>
+
+  <Faq heading={home.faqHeading} items={home.faq} />
+
+  <section class="testimonials">
+    <h2>{home.testimonialsHeading}</h2>
+    {home.testimonials.map((t) => (
+      <div class="testimonial">
+        <p>"{t.quote}"</p>
+        <span>— {t.author}</span>
+      </div>
+    ))}
+  </section>
+
+  <ContactSection heading={home.contactHeading} formName="contact" formHeading={home.contactFormHeading} />
+
+  <Suppliers heading={home.suppliersHeading} items={home.suppliers} />
+</Base>

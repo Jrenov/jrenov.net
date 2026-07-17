@@ -1,0 +1,31 @@
+---
+/**
+ * Emplacement photo d'une page service, éditable via le CMS.
+ * - Tant qu'aucune photo n'est renseignée, rien n'est rendu (pas de cadre vide).
+ * - En production (Netlify), l'image est optimisée à la volée par le CDN
+ *   d'images Netlify (redimensionnement + webp). En local, image brute.
+ */
+interface Props {
+  src?: string;
+  alt?: string;
+}
+const { src, alt } = Astro.props;
+
+const PROD = import.meta.env.PROD;
+const cdn = (u: string, w: number) =>
+  `/.netlify/images?url=${encodeURIComponent(u)}&w=${w}&fm=webp&q=72`;
+const widths = [600, 1000, 1400];
+---
+
+{src && (
+  <figure class="service-photo">
+    <img
+      src={PROD ? cdn(src, 1000) : src}
+      srcset={PROD ? widths.map((w) => `${cdn(src, w)} ${w}w`).join(", ") : undefined}
+      sizes="(max-width: 1040px) 92vw, 1000px"
+      alt={alt || "Intervention Jrenov à Vannes"}
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+)}

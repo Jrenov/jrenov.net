@@ -1,0 +1,230 @@
+backend:
+  name: github
+  repo: Jrenov/Website
+  branch: main
+  base_url: https://jrenov.net
+  auth_endpoint: api/auth
+
+# Dossier des images téléversées via le CMS (servi par le site, optimisé par le
+# CDN d'images Netlify côté rendu).
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+locale: fr
+
+site_url: https://jrenov.net
+display_url: https://jrenov.net
+
+collections:
+  # ---------------------------------------------------------------------------
+  - name: settings
+    label: Coordonnées & marque
+    description: "Informations affichées sur tout le site (nom, téléphone, e-mail, adresse). Ces coordonnées alimentent aussi les données Google."
+    files:
+      - name: site
+        label: Coordonnées & marque
+        file: src/data/site.json
+        fields:
+          - { name: businessName, label: Nom de l'entreprise, widget: string }
+          - { name: legalName, label: "Raison sociale (données Google)", widget: string }
+          - { name: ownerName, label: Nom de l'artisan, widget: string }
+          - { name: businessDescription, label: "Description courte (données Google)", widget: text }
+          - { name: headerBaseline, label: "Phrase sous le logo", widget: string }
+          - { name: phoneDisplay, label: "Téléphone (affiché)", widget: string }
+          - { name: phoneTel, label: "Téléphone (format lien)", widget: string, hint: "Format international sans espaces, ex : +33768648700" }
+          - { name: email, label: E-mail, widget: string }
+          - name: address
+            label: Adresse
+            widget: object
+            fields:
+              - { name: street, label: Rue, widget: string }
+              - { name: postalCode, label: Code postal, widget: string }
+              - { name: city, label: Ville, widget: string }
+              - { name: region, label: Département, widget: string }
+
+  # ---------------------------------------------------------------------------
+  - name: home
+    label: Page d'accueil
+    files:
+      - name: home
+        label: Accueil
+        file: src/data/home.json
+        fields:
+          - { name: metaTitle, label: "Titre SEO (onglet & Google)", widget: string }
+          - { name: metaDescription, label: "Description SEO (Google)", widget: text }
+          - { name: bannerStrong, label: "Bandeau urgent — texte en gras", widget: string }
+          - { name: bannerMid, label: "Bandeau urgent — suite", widget: string }
+          - { name: heroTitle, label: "Titre principal (H1)", widget: string }
+          - { name: heroIntro, label: "Texte d'introduction", widget: markdown, hint: "Gras et liens autorisés." }
+          - { name: servicesHeading, label: "Services — titre", widget: string }
+          - name: serviceCards
+            label: "Cartes de services"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: icon, label: Icône, widget: select, options: [plomberie, electricite, serrurerie, canalisation] }
+              - { name: title, label: Titre, widget: string }
+              - { name: desc, label: Description, widget: text }
+              - { name: url, label: Lien, widget: hidden }
+          - { name: presentationHeading, label: "Présentation — titre", widget: string }
+          - { name: presentation, label: "Présentation — texte", widget: markdown }
+          - { name: slogan, label: "Slogan (en italique)", widget: string }
+          - { name: faqHeading, label: "FAQ — titre", widget: string }
+          - name: faq
+            label: "Questions fréquentes"
+            label_singular: Question
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: markdown }
+          - { name: testimonialsHeading, label: "Témoignages — titre", widget: string }
+          - name: testimonials
+            label: "Témoignages"
+            label_singular: Témoignage
+            widget: list
+            summary: "{{fields.author}}"
+            fields:
+              - { name: quote, label: Avis, widget: text }
+              - { name: author, label: Auteur, widget: string }
+          - { name: contactHeading, label: "Contact — titre", widget: string }
+          - { name: contactFormHeading, label: "Contact — titre du formulaire", widget: string }
+          - { name: suppliersHeading, label: "Fournisseurs — titre", widget: string }
+          - name: suppliers
+            label: "Logos fournisseurs"
+            label_singular: Fournisseur
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Logo, widget: image }
+              - { name: alt, label: Nom, widget: string }
+              - { name: width, label: Largeur, widget: hidden }
+              - { name: height, label: Hauteur, widget: hidden }
+
+  # ---------------------------------------------------------------------------
+  - name: services
+    label: Pages de dépannage
+    description: "Plombier, électricien, serrurier, débouchage — photo et textes."
+    files:
+      - name: plombier
+        label: Plombier
+        file: src/data/services/plombier.json
+        fields: &service_fields
+          - { name: slug, label: Identifiant d'URL, widget: hidden }
+          - { name: navLabel, label: Libellé menu, widget: string }
+          - { name: breadcrumbLabel, label: "Libellé fil d'ariane", widget: string }
+          - { name: formName, label: Nom du formulaire, widget: hidden }
+          - { name: metaTitle, label: "Titre SEO (onglet & Google)", widget: string }
+          - { name: metaDescription, label: "Description SEO (Google)", widget: text }
+          - { name: serviceType, label: "Type de service", widget: hidden }
+          - { name: jsonLdName, label: jsonLdName, widget: hidden }
+          - { name: jsonLdDescription, label: jsonLdDescription, widget: hidden }
+          - { name: h1, label: "Titre de la page (H1)", widget: string }
+          - { name: intro, label: "Introduction", widget: markdown, hint: "Gras et liens autorisés." }
+          - { name: photo, label: "Photo de la page", widget: image, required: false, hint: "Ajoute une photo de tes interventions. Tant qu'aucune photo n'est ajoutée, l'emplacement reste invisible sur le site." }
+          - { name: photoAlt, label: "Description de la photo (accessibilité)", widget: string, required: false }
+          - { name: interventionsHeading, label: "Interventions — titre", widget: string }
+          - name: interventions
+            label: "Liste des interventions"
+            label_singular: Intervention
+            widget: list
+            field: { name: item, label: Intervention, widget: string }
+          - { name: stepsHeading, label: "Déroulé — titre", widget: string }
+          - name: steps
+            label: "Étapes du dépannage"
+            label_singular: Étape
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Titre, widget: string }
+              - { name: text, label: Texte, widget: text }
+          - { name: presentationHeading, label: "Présentation — titre", widget: string }
+          - { name: presentation, label: "Présentation — texte", widget: markdown }
+          - { name: ctaHeading, label: "Encart d'appel — titre", widget: string }
+          - { name: ctaText, label: "Encart d'appel — texte", widget: text }
+          - { name: zoneHeading, label: "Zone d'intervention — titre", widget: string }
+          - { name: zoneText, label: "Zone d'intervention — texte", widget: markdown }
+          - { name: faqHeading, label: "FAQ — titre", widget: string }
+          - name: faq
+            label: "Questions fréquentes"
+            label_singular: Question
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: markdown }
+          - { name: contactHeading, label: "Contact — titre", widget: string }
+      - name: electricien
+        label: Électricien
+        file: src/data/services/electricien.json
+        fields: *service_fields
+      - name: serrurier
+        label: Serrurier
+        file: src/data/services/serrurier.json
+        fields: *service_fields
+      - name: debouchage
+        label: Débouchage canalisation
+        file: src/data/services/debouchage.json
+        fields: *service_fields
+
+  # ---------------------------------------------------------------------------
+  - name: renovation
+    label: Page Rénovation
+    files:
+      - name: renovation
+        label: Rénovation
+        file: src/data/renovation.json
+        fields:
+          - { name: slug, label: Identifiant d'URL, widget: hidden }
+          - { name: metaTitle, label: "Titre SEO (onglet & Google)", widget: string }
+          - { name: metaDescription, label: "Description SEO (Google)", widget: text }
+          - { name: serviceType, label: serviceType, widget: hidden }
+          - { name: jsonLdName, label: jsonLdName, widget: hidden }
+          - { name: jsonLdDescription, label: jsonLdDescription, widget: hidden }
+          - { name: breadcrumbLabel, label: "Libellé fil d'ariane", widget: string }
+          - { name: formName, label: Nom du formulaire, widget: hidden }
+          - { name: h1, label: "Titre de la page (H1)", widget: string }
+          - { name: intro, label: "Introduction", widget: markdown }
+          - { name: realisationsHeading, label: "Réalisations — titre", widget: string }
+          - name: realisations
+            label: "Réalisations (3 blocs)"
+            label_singular: Bloc
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: id, label: "Identifiant (ne pas modifier)", widget: hidden }
+              - { name: title, label: Titre du bloc, widget: string }
+              - { name: text, label: Texte, widget: markdown }
+              - name: images
+                label: "Photos du carrousel"
+                label_singular: Photo
+                widget: list
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: file, label: Photo, widget: image }
+                  - { name: caption, label: Légende, widget: string }
+          - { name: presentationHeading, label: "Présentation — titre", widget: string }
+          - { name: presentation, label: "Présentation — texte", widget: markdown }
+          - { name: slogan, label: "Slogan (en italique)", widget: string }
+          - { name: ctaHeading, label: "Encart d'appel — titre", widget: string }
+          - { name: ctaText, label: "Encart d'appel — texte", widget: text }
+          - { name: contactHeading, label: "Contact — titre", widget: string }
+          - { name: contactFormHeading, label: "Contact — titre du formulaire", widget: string }
+          - { name: suppliersHeading, label: "Fournisseurs — titre", widget: string }
+
+  # ---------------------------------------------------------------------------
+  - name: legal
+    label: Mentions légales
+    files:
+      - name: legal
+        label: Mentions légales
+        file: src/data/legal.json
+        fields:
+          - { name: metaTitle, label: "Titre SEO", widget: string }
+          - { name: heading, label: Titre, widget: string }
+          - { name: director, label: "Directeur de la publication", widget: string }
+          - { name: siret, label: "Numéro SIRET", widget: string }
+          - { name: hosting, label: "Hébergement", widget: text }
+          - { name: ip, label: "Propriété intellectuelle", widget: text }
+          - { name: privacy, label: "Protection des données personnelles", widget: text }
+          - { name: lastUpdate, label: "Dernière mise à jour", widget: string }

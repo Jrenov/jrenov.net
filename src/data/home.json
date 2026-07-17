@@ -1,0 +1,81 @@
+{
+  "metaTitle": "Dépannage urgent à Vannes 7j/7 | Plombier, Électricien, Serrurier — Jrenov",
+  "metaDescription": "Dépannage urgent 7j/7 à Vannes et dans le Morbihan : plombier, électricien, serrurier, débouchage de canalisation. Artisan local, devis gratuit. Appelez le 07 68 64 87 00.",
+  "bannerStrong": "Dépannage urgent 7j/7",
+  "bannerMid": "Plomberie, électricité, serrurerie, canalisation",
+  "heroTitle": "Dépannage urgent à Vannes & dans le Morbihan — 7j/7",
+  "heroIntro": "**Jrenov**, artisan local basé à Vannes, intervient rapidement pour vos urgences : **plomberie**, **électricité**, **serrurerie** et **débouchage de canalisation**. Un problème qui ne peut pas attendre ? Appelez-nous, on vous dépanne.",
+  "servicesHeading": "Nos services de dépannage",
+  "serviceCards": [
+    {
+      "icon": "plomberie",
+      "title": "Plomberie",
+      "desc": "Fuite d'eau, réparation de chauffe-eau, robinetterie, débordement. Intervention rapide 7j/7.",
+      "url": "/plombier-vannes"
+    },
+    {
+      "icon": "electricite",
+      "title": "Électricité",
+      "desc": "Panne électrique, court-circuit, remise aux normes, tableau électrique. Dépannage urgent.",
+      "url": "/electricien-vannes"
+    },
+    {
+      "icon": "serrurerie",
+      "title": "Serrurerie",
+      "desc": "Ouverture de porte claquée ou fermée, changement de serrure, remplacement de cylindre.",
+      "url": "/serrurier-vannes"
+    },
+    {
+      "icon": "canalisation",
+      "title": "Canalisation",
+      "desc": "Débouchage de canalisation, curage, réparation de conduite. Intervention rapide sur Vannes et alentours.",
+      "url": "/debouchage-canalisation-vannes"
+    }
+  ],
+  "presentationHeading": "Votre dépanneur de proximité à Vannes",
+  "presentation": "**Jrenov**, entreprise artisanale basée à Vannes, est votre spécialiste du **dépannage urgent 7 jours sur 7**. Nous intervenons rapidement pour résoudre les problèmes du quotidien qui ne peuvent pas attendre : une fuite d'eau, une panne électrique, une porte claquée ou une canalisation bouchée.\n\nArtisan local, nous connaissons Vannes et le Morbihan. Vous avez en face de vous un interlocuteur unique, un **devis gratuit** et un **tarif annoncé avant l'intervention**, sans mauvaise surprise. Toutes nos prestations sont couvertes par notre **assurance décennale**.\n\nNous intervenons pour les particuliers et les professionnels à Vannes, Saint-Avé, Theix, Auray, Sarzeau, Muzillac et Carnac.\n\nAu-delà du dépannage, Jrenov réalise aussi vos travaux de [rénovation intérieure et extérieure à Vannes](/renovation-vannes) : salles de bain, cuisines, peinture, terrasses et ravalement.",
+  "slogan": "Réactif, fiable, à votre service.",
+  "faqHeading": "Questions fréquentes",
+  "faq": [
+    {
+      "q": "Intervenez-vous en urgence le week-end et les jours fériés ?",
+      "a": "Oui. Jrenov assure le dépannage urgent 7 jours sur 7 à Vannes et dans le Morbihan. Appelez le [07 68 64 87 00](tel:+33768648700) pour une intervention rapide."
+    },
+    {
+      "q": "Quels types de dépannage réalisez-vous ?",
+      "a": "Plomberie (fuite d'eau, chauffe-eau, robinetterie), électricité (panne, court-circuit, tableau électrique), serrurerie (porte claquée, changement de serrure) et débouchage de canalisation."
+    },
+    {
+      "q": "Dans quelles villes intervenez-vous ?",
+      "a": "À Vannes et dans tout le Morbihan : Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac et les communes alentour."
+    },
+    {
+      "q": "Combien coûte un dépannage ?",
+      "a": "Le devis est gratuit et le tarif vous est annoncé avant toute intervention, sans surprise. Le prix dépend de la nature de la panne et des pièces nécessaires."
+    },
+    {
+      "q": "Êtes-vous assuré ?",
+      "a": "Oui, toutes nos prestations sont couvertes par notre assurance décennale."
+    }
+  ],
+  "testimonialsHeading": "Ce que nos clients disent",
+  "testimonials": [
+    {
+      "quote": "Travail de qualité professionnel de confiance.",
+      "author": "Client PagesJaunes"
+    },
+    {
+      "quote": "Jrenov est intervenu dans notre appartement de location à Vannes pour rénover entièrement la salle de bain. Nous avions demandé que les travaux soient effectués sur seulement 2 mois (juillet et août). Nous sommes très satisfaits de la réalisation : travail soigné et terminé dans les délais demandés, nettoyage du chantier impeccable. Nous recommandons vivement cet artisan.",
+      "author": "Client PagesJaunes"
+    }
+  ],
+  "contactHeading": "Contact",
+  "contactFormHeading": "Pour une demande de devis",
+  "suppliersHeading": "Nos fournisseurs",
+  "suppliers": [
+    { "src": "/images/fournisseurs/gedimat.webp", "alt": "Gedimat", "width": 478, "height": 191 },
+    { "src": "/images/fournisseurs/cedeo.webp", "alt": "Cedeo", "width": 747, "height": 466 },
+    { "src": "/images/fournisseurs/howdens.webp", "alt": "Howdens", "width": 3222, "height": 1948 },
+    { "src": "/images/fournisseurs/setin.webp", "alt": "GroupeSetin", "width": 500, "height": 200 }
+  ]
+}

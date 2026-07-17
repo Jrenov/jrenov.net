@@ -1,0 +1,38 @@
+---
+import site from "../lib/site.ts";
+interface Props {
+  heading: string;
+  formName: string;
+  formHeading: string;
+}
+const { heading, formName, formHeading } = Astro.props;
+---
+
+<section id="contact" class="contact">
+  <h2>{heading}</h2>
+  <div class="contact-container">
+    <div class="contact-form">
+      <h3>{formHeading}</h3>
+      <form name={formName} method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value={formName} />
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required aria-required="true" />
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" name="phone" required aria-required="true" />
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>Nos coordonnées</h3>
+      <address>
+        <p>{site.businessName}<br />{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+      </address>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import { md } from "../lib/md.ts";
+import { faqPage } from "../lib/jsonld.ts";
+
+interface Props {
+  heading: string;
+  items: { q: string; a: string }[];
+}
+const { heading, items } = Astro.props;
+---
+
+<section class="faq">
+  <h2>{heading}</h2>
+  {items.map((f) => (
+    <details>
+      <summary>{f.q}</summary>
+      <Fragment set:html={md(f.a)} />
+    </details>
+  ))}
+  <script type="application/ld+json" set:html={JSON.stringify(faqPage(items))} />
+</section>

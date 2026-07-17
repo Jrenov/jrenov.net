@@ -1,0 +1,22 @@
+---
+interface Supplier {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+interface Props {
+  heading: string;
+  items: Supplier[];
+}
+const { heading, items } = Astro.props;
+---
+
+<section class="suppliers">
+  <h2>{heading}</h2>
+  <div class="suppliers-logos">
+    {items.map((s) => (
+      <img src={s.src} alt={s.alt} class="supplier-logo" loading="lazy" width={s.width} height={s.height} />
+    ))}
+  </div>
+</section>

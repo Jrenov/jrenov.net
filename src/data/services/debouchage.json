@@ -1,0 +1,47 @@
+{
+  "slug": "debouchage-canalisation-vannes",
+  "navLabel": "Débouchage canalisation",
+  "breadcrumbLabel": "Débouchage de canalisation à Vannes",
+  "formName": "contact-canalisation",
+  "metaTitle": "Débouchage de canalisation à Vannes 7j/7 — WC, évier, égout | Jrenov",
+  "metaDescription": "Débouchage de canalisation à Vannes 7j/7 : WC bouché, évier, douche, canalisation extérieure, curage. Artisan local, intervention rapide, devis gratuit. Appelez le 07 68 64 87 00.",
+  "serviceType": "Débouchage de canalisation",
+  "jsonLdName": "Débouchage de canalisation à Vannes",
+  "jsonLdDescription": "Débouchage de canalisation à Vannes 7j/7 : WC bouché, évier, douche, canalisation extérieure, curage et recherche de bouchon.",
+  "h1": "Débouchage de canalisation à Vannes — intervention rapide 7j/7",
+  "intro": "**WC bouché**, **évier qui ne s'écoule plus** ou **canalisation engorgée** ? **Jrenov**, artisan basé à Vannes, débouche vos canalisations rapidement 7 jours sur 7 dans tout le Morbihan. Devis gratuit, tarif annoncé avant l'intervention.",
+  "photo": "",
+  "photoAlt": "",
+  "interventionsHeading": "Nos interventions de débouchage",
+  "interventions": [
+    "WC bouché, chasse qui déborde",
+    "Évier, lavabo ou douche qui ne s'écoule plus",
+    "Canalisation extérieure engorgée",
+    "Recherche et localisation du bouchon",
+    "Curage de canalisation",
+    "Mauvaises odeurs et remontées d'eau",
+    "Débordement et eaux stagnantes",
+    "Réparation de conduite endommagée"
+  ],
+  "stepsHeading": "Comment se passe le dépannage ?",
+  "steps": [
+    { "title": "Votre appel", "text": "Vous nous décrivez le problème au 07 68 64 87 00. On évalue l'urgence et la nature du bouchon." },
+    { "title": "Le diagnostic", "text": "Sur place, nous localisons le bouchon et déterminons la méthode adaptée." },
+    { "title": "Le devis", "text": "Le tarif vous est annoncé avant l'intervention, sans surprise." },
+    { "title": "Le débouchage", "text": "Nous débouchons, curons si nécessaire et vérifions le bon écoulement." }
+  ],
+  "presentationHeading": "Un dépanneur local pour vos canalisations",
+  "presentation": "Une canalisation bouchée peut rapidement provoquer débordements et mauvaises odeurs. **Jrenov**, artisan basé à Vannes, intervient vite pour localiser le bouchon, le retirer et rétablir un écoulement normal, que ce soit sur un WC, un évier ou une canalisation extérieure.\n\nVous bénéficiez d'un **devis gratuit**, d'un **tarif annoncé avant l'intervention** et d'un travail couvert par notre **assurance décennale**. Pour un problème de plomberie plus large, voyez aussi notre page [plombier à Vannes](/plombier-vannes).",
+  "ctaHeading": "Canalisation bouchée à Vannes ?",
+  "ctaText": "WC, évier, douche, égout : on intervient rapidement avant le débordement, 7j/7.",
+  "zoneHeading": "Zone d'intervention",
+  "zoneText": "Jrenov débouche vos canalisations à **Vannes** et dans tout le Morbihan : Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac et les communes alentour.",
+  "faqHeading": "Questions fréquentes — débouchage à Vannes",
+  "faq": [
+    { "q": "Mon WC ou mon évier est bouché, que faire en attendant ?", "a": "Évitez les produits chimiques agressifs qui peuvent abîmer les canalisations et ne règlent pas un vrai bouchon. N'utilisez plus l'évacuation concernée et appelez-nous au [07 68 64 87 00](tel:+33768648700)." },
+    { "q": "Intervenez-vous en urgence le week-end ?", "a": "Oui, Jrenov débouche vos canalisations 7 jours sur 7 à Vannes et dans le Morbihan." },
+    { "q": "Combien coûte un débouchage de canalisation à Vannes ?", "a": "Le devis est gratuit et le tarif vous est annoncé avant l'intervention. Le prix dépend de l'emplacement et de la nature du bouchon." },
+    { "q": "Le débouchage est-il à la charge du locataire ou du propriétaire ?", "a": "En règle générale, l'entretien courant et un bouchon dû à l'usage sont à la charge du locataire, tandis qu'un défaut de la canalisation relève du propriétaire. En cas de doute, reportez-vous à votre bail." }
+  ],
+  "contactHeading": "Demande de devis débouchage"
+}

@@ -1,0 +1,39 @@
+---
+interface Props {
+  baseline: string;
+  portrait?: boolean;
+  portraitAlt?: string;
+}
+const {
+  baseline,
+  portrait = true,
+  portraitAlt = "Jean René Drouet, artisan dépanneur à Vannes",
+} = Astro.props;
+---
+
+<header>
+  <div class="header-content">
+    <div class="header-text">
+      <a href="/">
+        <img
+          src="/images/logo.webp"
+          alt="Jrenov - dépannage et rénovation à Vannes"
+          class="header-logo"
+          width="707"
+          height="353"
+        />
+      </a>
+      <p>{baseline}</p>
+    </div>
+    {portrait && (
+      <img
+        src="/images/header-image.webp"
+        alt={portraitAlt}
+        class="header-image"
+        fetchpriority="high"
+        width="600"
+        height="600"
+      />
+    )}
+  </div>
+</header>
