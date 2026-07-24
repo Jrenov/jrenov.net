@@ -1,0 +1,166 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import PhoneButton from "../components/PhoneButton.astro";
+import CtaBand from "../components/CtaBand.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Suppliers from "../components/Suppliers.astro";
+import { md } from "../lib/md.ts";
+import { serviceSchema, breadcrumb, SITE_URL } from "../lib/jsonld.ts";
+import site from "../lib/site.ts";
+import seo from "../data/seo.json";
+import reno from "../data/renovation.json";
+import home from "../data/home.json";
+
+const canonical = `${SITE_URL}/renovation-vannes`;
+const jsonLd = [
+  serviceSchema(site, seo, reno),
+  breadcrumb([
+    { name: "Accueil", item: `${SITE_URL}/` },
+    { name: reno.breadcrumbLabel, item: canonical },
+  ]),
+];
+---
+
+<Base
+  title={reno.metaTitle}
+  description={reno.metaDescription}
+  canonical={canonical}
+  current="/renovation-vannes"
+  portraitAlt="Jean René Drouet, artisan rénovation à Vannes"
+  jsonLd={jsonLd}
+>
+  <Breadcrumb slot="subnav" label={reno.breadcrumbLabel} />
+
+  <section class="service-intro">
+    <h1>{reno.h1}</h1>
+    <Fragment set:html={md(reno.intro)} />
+    <PhoneButton />
+  </section>
+
+  <section class="realisations">
+    <h2>{reno.realisationsHeading}</h2>
+
+    {reno.realisations.map((r, ri) => (
+      <div id={r.id} class="realisation">
+        <h3>{r.title}</h3>
+        <div class="content-wrapper">
+          <div class="text-content" set:html={md(r.text)} />
+          <div class="carousel">
+            <div class="carousel-track">
+              {r.images.map((img, ii) => (
+                <img
+                  src={img.file}
+                  alt={img.caption}
+                  data-caption={img.caption}
+                  width="1600"
+                  height="900"
+                  style="aspect-ratio:16/9"
+                  loading={ri === 0 && ii === 0 ? "eager" : "lazy"}
+                  fetchpriority={ri === 0 && ii === 0 ? "high" : undefined}
+                />
+              ))}
+            </div>
+            <button class="carousel-nav prev" aria-label="Image précédente">❮</button>
+            <button class="carousel-nav next" aria-label="Image suivante">❯</button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="presentation">
+    <h2>{reno.presentationHeading}</h2>
+    <Fragment set:html={md(reno.presentation)} />
+    <p class="slogan">{reno.slogan}</p>
+  </section>
+
+  <CtaBand heading={reno.ctaHeading} text={reno.ctaText} />
+
+  <ContactSection heading={reno.contactHeading} formName={reno.formName} formHeading={reno.contactFormHeading} />
+
+  <Suppliers heading={reno.suppliersHeading} items={home.suppliers} />
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vue détaillée de l'image">
+    <span class="lightbox-close" aria-label="Fermer">&times;</span>
+    <button class="lightbox-nav lightbox-prev" aria-label="Image précédente">❮</button>
+    <button class="lightbox-nav lightbox-next" aria-label="Image suivante">❯</button>
+    <img class="lightbox-content" id="lightbox-img" alt="" />
+    <div class="lightbox-caption"></div>
+  </div>
+</Base>
+
+<script>
+  // Carrousels (navigation) + lightbox de la page rénovation.
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+  const lbCap = lightbox?.querySelector(".lightbox-caption") as HTMLElement | null;
+  let group: HTMLImageElement[] = [];
+  let gIdx = 0;
+
+  function renderLightbox() {
+    if (!lbImg || !group[gIdx]) return;
+    lbImg.src = group[gIdx].src;
+    lbImg.alt = group[gIdx].alt || group[gIdx].dataset.caption || "";
+    if (lbCap) lbCap.textContent = group[gIdx].dataset.caption || group[gIdx].alt;
+  }
+  function openLightbox(imgs: HTMLImageElement[], i: number) {
+    group = imgs;
+    gIdx = i;
+    renderLightbox();
+    lightbox?.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    lightbox?.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+  function moveLightbox(d: number) {
+    if (!group.length) return;
+    gIdx = (gIdx + d + group.length) % group.length;
+    renderLightbox();
+  }
+
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track") as HTMLElement | null;
+    if (!track) return;
+    const imgs = Array.from(track.querySelectorAll("img")) as HTMLImageElement[];
+    const prev = carousel.querySelector(".carousel-nav.prev");
+    const next = carousel.querySelector(".carousel-nav.next");
+    let idx = 0;
+    const update = () => {
+      track.style.transform = `translateX(${-idx * 100}%)`;
+    };
+    prev?.addEventListener("click", () => {
+      idx = (idx - 1 + imgs.length) % imgs.length;
+      update();
+    });
+    next?.addEventListener("click", () => {
+      idx = (idx + 1) % imgs.length;
+      update();
+    });
+    imgs.forEach((img, i) => img.addEventListener("click", () => openLightbox(imgs, i)));
+    update();
+  });
+
+  if (lightbox) {
+    lightbox.querySelector(".lightbox-close")?.addEventListener("click", closeLightbox);
+    lightbox.querySelector(".lightbox-prev")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      moveLightbox(-1);
+    });
+    lightbox.querySelector(".lightbox-next")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      moveLightbox(1);
+    });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") moveLightbox(-1);
+      else if (e.key === "ArrowRight") moveLightbox(1);
+    });
+  }
+</script>

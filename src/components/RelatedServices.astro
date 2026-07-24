@@ -1,0 +1,18 @@
+---
+import { services } from "../lib/services.ts";
+interface Props {
+  currentSlug: string;
+}
+const { currentSlug } = Astro.props;
+const others = services.filter((s) => s.slug !== currentSlug);
+---
+
+<section class="related-services">
+  <h2>Nos autres services de dépannage</h2>
+  <ul>
+    {others.map((s) => (
+      <li><a href={`/${s.slug}`}>{s.breadcrumbLabel}</a></li>
+    ))}
+    <li><a href="/renovation-vannes">Rénovation à Vannes</a></li>
+  </ul>
+</section>

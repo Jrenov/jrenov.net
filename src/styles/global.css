@@ -1092,3 +1092,28 @@ footer a:hover {
     padding: 0 1rem;
   }
 }
+
+/* ===================================================================
+   Emplacement photo éditable via le CMS (pages service)
+   La figure n'est rendue que si une photo a été ajoutée dans le CMS.
+   =================================================================== */
+.service-photo {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.service-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .service-photo {
+    padding: 0 1rem;
+  }
+}

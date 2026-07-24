@@ -1,0 +1,53 @@
+{
+  "slug": "renovation-vannes",
+  "metaTitle": "Rénovation à Vannes — salle de bain, intérieur & extérieur | Jrenov",
+  "metaDescription": "Rénovation à Vannes et dans le Morbihan : salle de bain clé en main, cuisine, peinture, carrelage, placo, isolation, terrasse bois et ravalement de façade. Artisan local, devis gratuit.",
+  "serviceType": "Rénovation",
+  "jsonLdName": "Rénovation intérieure et extérieure à Vannes",
+  "jsonLdDescription": "Rénovation à Vannes : salle de bain clé en main, cuisine, peinture, carrelage, placo, isolation, terrasse bois et ravalement de façade.",
+  "breadcrumbLabel": "Rénovation à Vannes",
+  "formName": "contact-renovation",
+  "h1": "Rénovation à Vannes — intérieure & extérieure",
+  "intro": "Au-delà du dépannage, **Jrenov** réalise vos travaux de rénovation à Vannes et dans le Morbihan : **salle de bain clé en main**, **cuisine**, **peinture**, **carrelage**, **placo**, **isolation**, **terrasse bois** et **ravalement de façade**.",
+  "realisationsHeading": "Nos réalisations",
+  "realisations": [
+    {
+      "id": "plomberie",
+      "title": "Travaux de plomberie & salles de bain",
+      "text": "L'entreprise **Jrenov** réalise tous vos travaux de plomberie, ainsi que la **rénovation complète de salle de bain**, livrée clé en main. Nous proposons également des aménagements adaptés pour les **personnes à mobilité réduite**.\n\nNous intervenons sur les **circuits d'alimentation en eau** et de **vidange**, le **raccordement des sanitaires**, la **pose de cloisons**, ainsi que la **faïence** et le **carrelage**.",
+      "images": [
+        { "file": "/images/plomberie/salle-de-bain1.webp", "caption": "Installation complète d'une salle de bain moderne" },
+        { "file": "/images/plomberie/avant1.webp", "caption": "Salle de bain avant travaux" },
+        { "file": "/images/plomberie/apres1.webp", "caption": "Salle de bain après travaux" }
+      ]
+    },
+    {
+      "id": "interieur",
+      "title": "Rénovation intérieure & aménagement",
+      "text": "Depuis plusieurs années, **Jrenov** est spécialisée dans la rénovation de l'habitat. Que ce soit pour une seule pièce ou pour l'ensemble de votre logement, nous vous accompagnons dans tous vos projets : rénovation, transformation ou **création de nouveaux espaces** (buanderie, salle de bain, aménagement de combles...).\n\nNous réalisons des travaux de **placoplâtre**, **pose d'isolation**, **électricité**, **plomberie**, **pose de sol** et **peinture**.",
+      "images": [
+        { "file": "/images/interieur/cuisine1.webp", "caption": "Cuisine avec pose de verrière" },
+        { "file": "/images/interieur/interieur1.webp", "caption": "Création de cloisons et pose de sol" },
+        { "file": "/images/interieur/placo1.webp", "caption": "Pose de placo" }
+      ]
+    },
+    {
+      "id": "exterieur",
+      "title": "Travaux d'extérieur",
+      "text": "**Jrenov** vous accompagne également dans vos projets d'aménagement extérieur. Nous réalisons des **terrasses en bois** sur mesure, des **clôtures** et des **portails** pour sécuriser et embellir votre propriété.\n\nNous proposons également des services de **ravalement de façade** pour redonner un coup de jeune à votre habitation. Notre expertise nous permet de travailler sur différents types de revêtements et de matériaux.",
+      "images": [
+        { "file": "/images/exterieur/terrasse-bois1.webp", "caption": "Terrasse en bois sur mesure" },
+        { "file": "/images/exterieur/ravalement1.webp", "caption": "Ravalement de façade" },
+        { "file": "/images/exterieur/ravalement2.webp", "caption": "Ravalement de façade" }
+      ]
+    }
+  ],
+  "presentationHeading": "Un artisan unique pour votre projet",
+  "presentation": "Avec **Jrenov**, vous avez un interlocuteur unique du devis à la livraison. Particuliers et professionnels dans tout le Morbihan : Vannes, Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac.\n\nToutes nos prestations sont couvertes par notre **assurance décennale**, avec des solutions adaptées **à votre budget**. Besoin d'une intervention rapide ? Découvrez aussi notre [dépannage urgent 7j/7 à Vannes](/).",
+  "slogan": "Réactif, fiable, à votre service.",
+  "ctaHeading": "Un projet de rénovation à Vannes ?",
+  "ctaText": "Salle de bain, cuisine, peinture, terrasse : parlons de votre projet et recevez un devis gratuit.",
+  "contactHeading": "Demande de devis rénovation",
+  "contactFormHeading": "Parlez-nous de votre projet",
+  "suppliersHeading": "Nos fournisseurs"
+}

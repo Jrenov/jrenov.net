@@ -1,0 +1,16 @@
+{
+  "businessName": "Jrenov",
+  "legalName": "Jrenov - Jean René Drouet",
+  "ownerName": "Jean René Drouet",
+  "businessDescription": "Dépannage urgent 7j/7 à Vannes : plombier, électricien, serrurier, débouchage de canalisation.",
+  "headerBaseline": "Dépannage urgent 7j/7 à Vannes et dans le Morbihan",
+  "phoneDisplay": "07 68 64 87 00",
+  "phoneTel": "+33768648700",
+  "email": "jrenov56@gmail.com",
+  "address": {
+    "street": "1 bis avenue de la Marne",
+    "postalCode": "56000",
+    "city": "Vannes",
+    "region": "Morbihan"
+  }
+}

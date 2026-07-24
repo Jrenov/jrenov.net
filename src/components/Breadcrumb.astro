@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li aria-current="page">{label}</li>
+  </ol>
+</nav>

@@ -1,0 +1,85 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import PhoneButton from "../components/PhoneButton.astro";
+import ServicePhoto from "../components/ServicePhoto.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Faq from "../components/Faq.astro";
+import RelatedServices from "../components/RelatedServices.astro";
+import ContactSection from "../components/ContactSection.astro";
+import { md } from "../lib/md.ts";
+import { serviceSchema, breadcrumb, SITE_URL } from "../lib/jsonld.ts";
+import site from "../lib/site.ts";
+import seo from "../data/seo.json";
+import { services } from "../lib/services.ts";
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { service: s.slug }, props: { service: s } }));
+}
+
+const { service } = Astro.props;
+const canonical = `${SITE_URL}/${service.slug}`;
+const jsonLd = [
+  serviceSchema(site, seo, service),
+  breadcrumb([
+    { name: "Accueil", item: `${SITE_URL}/` },
+    { name: service.breadcrumbLabel, item: canonical },
+  ]),
+];
+---
+
+<Base
+  title={service.metaTitle}
+  description={service.metaDescription}
+  canonical={canonical}
+  current={`/${service.slug}`}
+  portraitAlt={`Jean René Drouet, ${service.serviceType.toLowerCase()} à Vannes`}
+  jsonLd={jsonLd}
+>
+  <Breadcrumb slot="subnav" label={service.breadcrumbLabel} />
+
+  <section class="service-intro">
+    <h1>{service.h1}</h1>
+    <Fragment set:html={md(service.intro)} />
+    <PhoneButton />
+  </section>
+
+  <ServicePhoto src={service.photo} alt={service.photoAlt} />
+
+  <section>
+    <h2>{service.interventionsHeading}</h2>
+    <ul class="check-list">
+      {service.interventions.map((i) => <li>{i}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{service.stepsHeading}</h2>
+    <div class="steps">
+      {service.steps.map((s) => (
+        <div class="step">
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="presentation">
+    <h2>{service.presentationHeading}</h2>
+    <Fragment set:html={md(service.presentation)} />
+  </section>
+
+  <CtaBand heading={service.ctaHeading} text={service.ctaText} />
+
+  <section>
+    <h2>{service.zoneHeading}</h2>
+    <Fragment set:html={md(service.zoneText)} />
+  </section>
+
+  <Faq heading={service.faqHeading} items={service.faq} />
+
+  <RelatedServices currentSlug={service.slug} />
+
+  <ContactSection heading={service.contactHeading} formName={service.formName} formHeading="Décrivez votre besoin" />
+</Base>

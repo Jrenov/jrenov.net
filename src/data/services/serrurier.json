@@ -1,0 +1,47 @@
+{
+  "slug": "serrurier-vannes",
+  "navLabel": "Serrurier",
+  "breadcrumbLabel": "Serrurier à Vannes",
+  "formName": "contact-serrurerie",
+  "metaTitle": "Serrurier à Vannes 7j/7 — Ouverture de porte & serrure | Jrenov",
+  "metaDescription": "Serrurier à Vannes 7j/7 : ouverture de porte claquée ou fermée, changement de serrure, remplacement de cylindre, dépannage après effraction. Artisan local, devis gratuit. Appelez le 07 68 64 87 00.",
+  "serviceType": "Serrurier",
+  "jsonLdName": "Dépannage serrurerie à Vannes",
+  "jsonLdDescription": "Serrurier à Vannes 7j/7 : ouverture de porte claquée ou fermée, changement de serrure, remplacement de cylindre, dépannage après effraction.",
+  "h1": "Serrurier à Vannes — ouverture de porte & dépannage serrure 7j/7",
+  "intro": "**Porte claquée**, **clé cassée** ou **serrure bloquée** ? **Jrenov**, serrurier artisan basé à Vannes, intervient rapidement 7 jours sur 7 dans tout le Morbihan. Ouverture sans casse dans la plupart des cas, devis gratuit et tarif annoncé avant l'intervention.",
+  "photo": "",
+  "photoAlt": "",
+  "interventionsHeading": "Nos interventions de serrurerie",
+  "interventions": [
+    "Ouverture de porte claquée",
+    "Ouverture de porte fermée à clé",
+    "Clé cassée dans la serrure ou clé perdue",
+    "Changement de serrure",
+    "Remplacement de cylindre (barillet)",
+    "Serrure forcée ou bloquée",
+    "Dépannage et sécurisation après effraction",
+    "Pose de verrou et renforcement"
+  ],
+  "stepsHeading": "Comment se passe le dépannage ?",
+  "steps": [
+    { "title": "Votre appel", "text": "Vous nous expliquez la situation au 07 68 64 87 00. On évalue le type d'ouverture nécessaire." },
+    { "title": "Le diagnostic", "text": "Sur place, nous déterminons la méthode d'ouverture la moins invasive pour votre porte et votre serrure." },
+    { "title": "Le devis", "text": "Le tarif vous est annoncé avant d'agir, sans surprise." },
+    { "title": "L'intervention", "text": "Ouverture, changement de serrure ou de cylindre, et sécurisation si besoin." }
+  ],
+  "presentationHeading": "Un serrurier local et de confiance",
+  "presentation": "Se retrouver devant une porte fermée est toujours stressant. **Jrenov**, artisan basé à Vannes, intervient rapidement et privilégie toujours l'ouverture **sans casse** lorsque c'est possible, pour vous éviter des frais inutiles.\n\nVous bénéficiez d'un **devis gratuit**, d'un **tarif annoncé avant l'intervention** et d'un interlocuteur de confiance, en direct. En cas de serrure forcée, nous vous conseillons sur le bon niveau de sécurité à remettre en place.",
+  "ctaHeading": "Bloqué dehors à Vannes ?",
+  "ctaText": "Porte claquée, clé cassée, serrure bloquée : on vous ouvre ça rapidement, 7j/7.",
+  "zoneHeading": "Zone d'intervention",
+  "zoneText": "Jrenov intervient en serrurerie à **Vannes** et dans tout le Morbihan : Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac et les communes alentour.",
+  "faqHeading": "Questions fréquentes — serrurier à Vannes",
+  "faq": [
+    { "q": "Ma porte a claqué, que faire ?", "a": "Restez calme, ne forcez pas la serrure au risque de l'endommager. Appelez-nous au [07 68 64 87 00](tel:+33768648700) : dans la plupart des cas, une porte claquée s'ouvre sans casse." },
+    { "q": "Intervenez-vous en urgence le soir et le week-end ?", "a": "Oui, Jrenov dépanne en serrurerie 7 jours sur 7 à Vannes et dans le Morbihan." },
+    { "q": "Pouvez-vous ouvrir une porte sans la casser ?", "a": "Dans la majorité des cas d'une porte claquée, l'ouverture se fait sans dégât. Si la serrure est forcée ou bloquée, nous vous proposons la meilleure solution avant d'intervenir." },
+    { "q": "Intervenez-vous après un cambriolage ?", "a": "Oui. Nous sécurisons votre porte, remplaçons la serrure ou le cylindre forcé et remettons votre logement en sûreté." }
+  ],
+  "contactHeading": "Demande de devis serrurerie"
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "plombier-vannes",
+  "navLabel": "Plombier",
+  "breadcrumbLabel": "Plombier à Vannes",
+  "formName": "contact-plomberie",
+  "metaTitle": "Plombier à Vannes 7j/7 — Dépannage fuite d'eau & urgence | Jrenov",
+  "metaDescription": "Plombier à Vannes en urgence 7j/7 : fuite d'eau, chauffe-eau en panne, robinetterie, WC, recherche de fuite. Artisan local, devis gratuit, tarif annoncé avant intervention. Appelez le 07 68 64 87 00.",
+  "serviceType": "Plombier",
+  "jsonLdName": "Dépannage plomberie à Vannes",
+  "jsonLdDescription": "Plombier à Vannes en urgence 7j/7 : fuite d'eau, chauffe-eau, robinetterie, WC, recherche de fuite et dégât des eaux.",
+  "h1": "Plombier à Vannes — dépannage plomberie urgent 7j/7",
+  "intro": "Une **fuite d'eau**, un **chauffe-eau en panne** ou un **WC bouché** ? **Jrenov**, plombier artisan basé à Vannes, intervient rapidement 7 jours sur 7 dans tout le Morbihan. Devis gratuit, tarif annoncé avant l'intervention.",
+  "photo": "",
+  "photoAlt": "",
+  "interventionsHeading": "Nos interventions de plomberie en urgence",
+  "interventions": [
+    "Fuite d'eau apparente ou encastrée",
+    "Recherche de fuite et réparation",
+    "Chauffe-eau en panne, plus d'eau chaude",
+    "Robinet, mitigeur ou flexible qui fuit",
+    "WC bouché, chasse d'eau défectueuse",
+    "Fuite sous évier, lavabo ou douche",
+    "Raccordement et remplacement de sanitaires",
+    "Dégât des eaux et coupure d'urgence"
+  ],
+  "stepsHeading": "Comment se passe le dépannage ?",
+  "steps": [
+    {
+      "title": "Votre appel",
+      "text": "Vous nous décrivez le problème au 07 68 64 87 00. On évalue l'urgence et on vous conseille les bons gestes immédiats."
+    },
+    {
+      "title": "Le diagnostic",
+      "text": "Sur place, nous identifions l'origine de la panne ou de la fuite, même encastrée."
+    },
+    {
+      "title": "Le devis",
+      "text": "Nous vous annonçons le tarif avant d'intervenir. Pas de mauvaise surprise."
+    },
+    {
+      "title": "La réparation",
+      "text": "Nous réparons et remettons en état, avec une prestation couverte par notre assurance décennale."
+    }
+  ],
+  "presentationHeading": "Un plombier local, réactif et transparent",
+  "presentation": "Basé à Vannes, **Jrenov** est votre plombier de proximité. En cas d'urgence, vous avez un interlocuteur unique qui connaît le secteur et se déplace vite. Nous traitons aussi bien la petite réparation que le remplacement de chauffe-eau ou la reprise d'un réseau après dégât des eaux.\n\nNotre engagement : un **devis gratuit**, un **tarif annoncé avant l'intervention** et un travail soigné, couvert par notre **assurance décennale**. Pour les projets plus larges, découvrez aussi notre [rénovation de salle de bain à Vannes](/renovation-vannes).",
+  "ctaHeading": "Une urgence plomberie à Vannes ?",
+  "ctaText": "Fuite, chauffe-eau, canalisation : ne laissez pas la situation empirer. On vous dépanne 7j/7.",
+  "zoneHeading": "Zone d'intervention",
+  "zoneText": "Jrenov intervient en plomberie à **Vannes** et dans tout le Morbihan : Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac et les communes alentour.",
+  "faqHeading": "Questions fréquentes — plombier à Vannes",
+  "faq": [
+    {
+      "q": "Que faire en cas de fuite d'eau en attendant le plombier ?",
+      "a": "Coupez l'arrivée d'eau au robinet d'arrêt ou au compteur, coupez l'électricité si l'eau approche d'une installation électrique, puis appelez-nous au [07 68 64 87 00](tel:+33768648700). Nous vous guidons et intervenons rapidement."
+    },
+    {
+      "q": "Intervenez-vous en urgence le week-end pour une fuite ?",
+      "a": "Oui, Jrenov dépanne en plomberie 7 jours sur 7 à Vannes et dans le Morbihan, week-end et jours fériés inclus."
+    },
+    {
+      "q": "Combien coûte un dépannage de plomberie à Vannes ?",
+      "a": "Le devis est gratuit et le tarif est annoncé avant l'intervention. Le prix dépend du problème (fuite, chauffe-eau, robinetterie) et des pièces à remplacer."
+    },
+    {
+      "q": "Faites-vous la recherche de fuite ?",
+      "a": "Oui. Nous localisons l'origine d'une fuite, y compris encastrée, puis réalisons la réparation et la remise en état nécessaire."
+    }
+  ],
+  "contactHeading": "Demande de devis plomberie"
+}

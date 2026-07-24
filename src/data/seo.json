@@ -1,0 +1,16 @@
+{
+  "geo": { "latitude": 47.6558, "longitude": -2.7606 },
+  "areaServed": ["Vannes", "Saint-Avé", "Theix", "Auray", "Sarzeau", "Muzillac", "Carnac"],
+  "openingHours": {
+    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "08:00",
+    "closes": "19:00"
+  },
+  "priceRange": "€€",
+  "offerCatalog": [
+    { "name": "Dépannage plomberie", "url": "https://jrenov.net/plombier-vannes", "description": "Dépannage plomberie urgent 7j/7 : fuite d'eau, chauffe-eau, robinetterie" },
+    { "name": "Dépannage électricité", "url": "https://jrenov.net/electricien-vannes", "description": "Dépannage électrique urgent 7j/7 : panne, court-circuit, tableau électrique" },
+    { "name": "Serrurerie", "url": "https://jrenov.net/serrurier-vannes", "description": "Ouverture de porte, changement de serrure, remplacement de cylindre" },
+    { "name": "Débouchage canalisation", "url": "https://jrenov.net/debouchage-canalisation-vannes", "description": "Débouchage de canalisation, curage, réparation de conduite" }
+  ]
+}

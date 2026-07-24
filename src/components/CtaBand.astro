@@ -1,0 +1,14 @@
+---
+import PhoneButton from "./PhoneButton.astro";
+interface Props {
+  heading: string;
+  text: string;
+}
+const { heading, text } = Astro.props;
+---
+
+<section class="cta-band">
+  <h2>{heading}</h2>
+  <p>{text}</p>
+  <PhoneButton />
+</section>

@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /mentions-legales.html
+Disallow: /admin/
 
 Sitemap: https://jrenov.net/sitemap.xml 

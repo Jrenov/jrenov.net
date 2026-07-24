@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import site from "../lib/site.ts";
+import legal from "../data/legal.json";
+---
+
+<Base
+  title={legal.metaTitle}
+  description="Mentions légales du site Jrenov, artisan à Vannes."
+  canonical="https://jrenov.net/mentions-legales"
+  robots="noindex, nofollow"
+  showPortrait={false}
+  headerBaseline="Travaux de rénovation à Vannes"
+  contactHref="/#contact"
+>
+  <section class="mentions-legales">
+    <h1 class="visually-hidden">Mentions légales — Jrenov</h1>
+    <h2>{legal.heading}</h2>
+
+    <h3>Éditeur du site</h3>
+    <p>
+      {site.businessName}<br />
+      {site.address.street}<br />
+      {site.address.postalCode} {site.address.city}<br />
+      Téléphone : <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a><br />
+      Email : <a href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
+
+    <h3>Directeur de la publication</h3>
+    <p>{legal.director}</p>
+
+    <h3>Numéro SIRET</h3>
+    <p>{legal.siret}</p>
+
+    <h3>Hébergement</h3>
+    <p set:html={legal.hosting.replace(/\n/g, "<br>")} />
+
+    <h3>Propriété intellectuelle</h3>
+    <p>{legal.ip}</p>
+
+    <h3>Protection des données personnelles</h3>
+    <p>{legal.privacy}</p>
+
+    <h3>Dernière mise à jour</h3>
+    <p>{legal.lastUpdate}</p>
+  </section>
+</Base>

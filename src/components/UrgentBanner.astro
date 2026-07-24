@@ -1,0 +1,12 @@
+---
+import site from "../lib/site.ts";
+interface Props {
+  strong: string;
+  mid: string;
+}
+const { strong, mid } = Astro.props;
+---
+
+<div class="urgent-banner">
+  <p><strong>{strong}</strong> — {mid} — <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+</div>

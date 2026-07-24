@@ -1,0 +1,47 @@
+{
+  "slug": "electricien-vannes",
+  "navLabel": "Électricien",
+  "breadcrumbLabel": "Électricien à Vannes",
+  "formName": "contact-electricite",
+  "metaTitle": "Électricien à Vannes 7j/7 — Dépannage panne électrique | Jrenov",
+  "metaDescription": "Électricien à Vannes en urgence 7j/7 : panne de courant, disjoncteur qui saute, court-circuit, tableau électrique, remise aux normes. Artisan local, devis gratuit. Appelez le 07 68 64 87 00.",
+  "serviceType": "Électricien",
+  "jsonLdName": "Dépannage électricité à Vannes",
+  "jsonLdDescription": "Électricien à Vannes en urgence 7j/7 : panne de courant, disjoncteur, court-circuit, tableau électrique, remise aux normes.",
+  "h1": "Électricien à Vannes — dépannage électrique urgent 7j/7",
+  "intro": "**Panne de courant**, **disjoncteur qui saute** ou **court-circuit** ? **Jrenov**, électricien artisan basé à Vannes, intervient rapidement 7 jours sur 7 dans tout le Morbihan pour sécuriser votre installation. Devis gratuit, tarif annoncé avant l'intervention.",
+  "photo": "",
+  "photoAlt": "",
+  "interventionsHeading": "Nos interventions en électricité",
+  "interventions": [
+    "Panne de courant totale ou partielle",
+    "Disjoncteur qui saute, coupure à répétition",
+    "Court-circuit et recherche de panne",
+    "Tableau électrique et remplacement de disjoncteurs",
+    "Prise, interrupteur ou point lumineux défectueux",
+    "Remise aux normes de l'installation",
+    "Chauffe-eau électrique en panne",
+    "Sécurisation après incident électrique"
+  ],
+  "stepsHeading": "Comment se passe le dépannage ?",
+  "steps": [
+    { "title": "Votre appel", "text": "Vous nous décrivez la panne au 07 68 64 87 00. On évalue le risque et on vous indique les gestes de sécurité." },
+    { "title": "Le diagnostic", "text": "Sur place, nous recherchons l'origine de la panne et identifions le circuit concerné." },
+    { "title": "Le devis", "text": "Le tarif vous est annoncé avant toute intervention, sans surprise." },
+    { "title": "La remise en service", "text": "Nous réparons et sécurisons l'installation, prestation couverte par notre assurance décennale." }
+  ],
+  "presentationHeading": "Un électricien local et réactif",
+  "presentation": "Une coupure de courant ou une installation qui disjoncte peut vite devenir un problème de sécurité. **Jrenov**, artisan basé à Vannes, intervient rapidement pour diagnostiquer la panne, la réparer et remettre votre logement en sécurité.\n\nVous bénéficiez d'un **devis gratuit**, d'un **tarif annoncé avant l'intervention** et d'un travail couvert par notre **assurance décennale**. Nous réalisons aussi vos travaux d'électricité dans le cadre d'une [rénovation intérieure à Vannes](/renovation-vannes).",
+  "ctaHeading": "Une urgence électrique à Vannes ?",
+  "ctaText": "Plus de courant, ça disjoncte, odeur suspecte : ne prenez pas de risque, appelez-nous 7j/7.",
+  "zoneHeading": "Zone d'intervention",
+  "zoneText": "Jrenov intervient en électricité à **Vannes** et dans tout le Morbihan : Saint-Avé, Theix, Auray, Sarzeau, Muzillac, Carnac et les communes alentour.",
+  "faqHeading": "Questions fréquentes — électricien à Vannes",
+  "faq": [
+    { "q": "Que faire en cas de panne électrique totale ?", "a": "Vérifiez d'abord que le disjoncteur général n'a pas sauté et que le problème ne vient pas du fournisseur. Si l'installation disjoncte sans raison, sent le brûlé ou présente un risque, coupez le courant et appelez-nous au [07 68 64 87 00](tel:+33768648700)." },
+    { "q": "Intervenez-vous en urgence le soir et le week-end ?", "a": "Oui, Jrenov dépanne en électricité 7 jours sur 7 à Vannes et dans le Morbihan." },
+    { "q": "Mon disjoncteur saute sans arrêt, d'où ça vient ?", "a": "C'est souvent un court-circuit, une surcharge ou un appareil défectueux. Nous recherchons l'origine de la panne et sécurisons votre installation." },
+    { "q": "Faites-vous la mise aux normes du tableau électrique ?", "a": "Oui, nous intervenons sur le tableau électrique, le remplacement de disjoncteurs et la remise aux normes de l'installation. Devis gratuit." }
+  ],
+  "contactHeading": "Demande de devis électricité"
+}
