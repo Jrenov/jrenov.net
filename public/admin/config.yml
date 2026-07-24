@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Jrenov/Website
+  repo: Jrenov/jrenov.net
   branch: main
   base_url: https://jrenov.net
   auth_endpoint: api/auth
