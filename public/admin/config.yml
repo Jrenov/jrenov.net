@@ -15,6 +15,8 @@ locale: fr
 site_url: https://jrenov.net
 display_url: https://jrenov.net
 
+# Guide d'utilisation (pour Jean René) : https://jrenov.net/admin/guide.html
+
 collections:
   # ---------------------------------------------------------------------------
   - name: settings
@@ -45,6 +47,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: home
     label: Page d'accueil
+    description: "Textes, cartes de services, FAQ et avis clients de la page d'accueil. Besoin d'aide ? jrenov.net/admin/guide.html"
     files:
       - name: home
         label: Accueil
@@ -170,6 +173,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: renovation
     label: Page Rénovation
+    description: "Textes et photos des carrousels de réalisations."
     files:
       - name: renovation
         label: Rénovation
@@ -213,8 +217,68 @@ collections:
           - { name: suppliersHeading, label: "Fournisseurs — titre", widget: string }
 
   # ---------------------------------------------------------------------------
+  # Pages libres : Jean René peut créer autant de pages qu'il veut (un fichier
+  # JSON par page dans src/data/pages/, rendu par src/pages/[...page].astro).
+  - name: pages
+    label: Pages supplémentaires
+    label_singular: Page
+    description: "Crée tes propres pages (ex. : « Pose de cuisine », « Nos tarifs »). Clique « Nouvelle page », remplis, coche « Page en ligne », puis enregistre. Guide : jrenov.net/admin/guide.html"
+    folder: src/data/pages
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{fields.url}}"
+    summary: "{{title}}  —  /{{url}}"
+    sortable_fields: [title]
+    view_filters:
+      - { label: "En ligne", field: published, pattern: true }
+      - { label: "Brouillons", field: published, pattern: false }
+    fields:
+      - { name: title, label: "Titre de la page", widget: string, hint: "Le grand titre affiché en haut de la page. Ex : « Pose de cuisine à Vannes »." }
+      - name: url
+        label: "Adresse de la page"
+        widget: string
+        hint: "Ce qui s'affichera après jrenov.net/ — en minuscules, sans accent ni espace, mots séparés par des tirets. Ex : pose-cuisine-vannes → jrenov.net/pose-cuisine-vannes. Évite de la changer une fois la page en ligne (Google la connaît)."
+        pattern:
+          - '^(?!(admin|api|images|index|sitemap|mentions-legales|renovation-vannes|plombier-vannes|electricien-vannes|serrurier-vannes|debouchage-canalisation-vannes)$)[a-z0-9]+(-[a-z0-9]+)*$'
+          - "Uniquement des minuscules sans accent, des chiffres et des tirets (ex : pose-cuisine-vannes). Cette adresse ne doit pas déjà être utilisée par une page du site."
+      - { name: published, label: "Page en ligne", widget: boolean, default: false, hint: "Décoché = brouillon : la page est enregistrée mais invisible sur le site. Coche pour la publier." }
+      - name: linkPlacement
+        label: "Où mettre un lien vers cette page ?"
+        widget: select
+        default: none
+        options:
+          - { label: "Dans le menu du haut", value: menu }
+          - { label: "En bas de page (à côté de « Mentions légales »)", value: footer }
+          - { label: "Nulle part (je partagerai le lien moi-même)", value: none }
+      - { name: menuLabel, label: "Nom court pour le lien (facultatif)", widget: string, required: false, hint: "Ex : « Cuisine ». Si vide, le titre de la page est utilisé. Reste court pour le menu." }
+      - { name: intro, label: "Texte d'introduction", widget: markdown, required: false, hint: "Quelques phrases sous le titre. Gras et liens autorisés." }
+      - { name: photo, label: "Photo principale (facultatif)", widget: image, required: false }
+      - { name: photoAlt, label: "Description de la photo", widget: string, required: false, hint: "Une courte phrase qui décrit la photo (utile pour Google)." }
+      - name: sections
+        label: "Parties de la page"
+        label_singular: Partie
+        widget: list
+        required: false
+        summary: "{{fields.heading}}"
+        hint: "Ajoute autant de parties que tu veux avec le bouton « + ». Chaque partie : un titre, un texte et une photo (facultatifs)."
+        fields:
+          - { name: heading, label: "Titre de la partie", widget: string, required: false }
+          - { name: text, label: Texte, widget: markdown, required: false }
+          - { name: image, label: "Photo (facultatif)", widget: image, required: false }
+          - { name: imageAlt, label: "Description de la photo", widget: string, required: false }
+      - { name: showCallButton, label: "Afficher le bouton « Appeler »", widget: boolean, default: true }
+      - { name: showContactForm, label: "Afficher le formulaire de contact en bas", widget: boolean, default: true }
+      - { name: contactHeading, label: "Titre du formulaire de contact", widget: string, required: false, default: "Contactez-nous" }
+      - { name: metaTitle, label: "Titre pour Google (facultatif)", widget: string, required: false, hint: "Le titre qui apparaît dans Google et dans l'onglet du navigateur. Si vide : « Titre de la page | Jrenov »." }
+      - { name: metaDescription, label: "Description pour Google (facultatif)", widget: text, required: false, hint: "1 à 2 phrases (max ~155 caractères) qui donnent envie de cliquer. Si vide, le début de l'introduction est utilisé." }
+
+  # ---------------------------------------------------------------------------
   - name: legal
     label: Mentions légales
+    description: "SIRET, hébergeur, date de mise à jour."
     files:
       - name: legal
         label: Mentions légales
