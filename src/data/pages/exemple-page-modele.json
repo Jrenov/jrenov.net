@@ -1,0 +1,29 @@
+{
+  "title": "Page modèle (exemple)",
+  "url": "exemple-page-modele",
+  "published": false,
+  "linkPlacement": "none",
+  "menuLabel": "",
+  "metaTitle": "Page modèle — Jrenov, artisan à Vannes",
+  "metaDescription": "Exemple de page créée depuis l'administration du site Jrenov.",
+  "intro": "Ceci est une **page d'exemple**, non publiée. Elle sert de modèle : tu peux la **dupliquer** pour créer une nouvelle page, ou t'en inspirer.",
+  "photo": "",
+  "photoAlt": "",
+  "sections": [
+    {
+      "heading": "Un premier paragraphe",
+      "text": "Écris ici ton texte. Tu peux mettre des mots **en gras** et ajouter des listes :\n\n- premier point\n- deuxième point",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "heading": "Une deuxième partie",
+      "text": "Chaque partie a un titre, un texte et, si tu veux, une photo.",
+      "image": "",
+      "imageAlt": ""
+    }
+  ],
+  "showCallButton": true,
+  "showContactForm": true,
+  "contactHeading": "Contactez-nous"
+}

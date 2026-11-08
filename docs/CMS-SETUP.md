@@ -26,20 +26,22 @@ src/
     services/*.json    Pages plombier / électricien / serrurier / débouchage
     renovation.json    Page rénovation
     legal.json         Mentions légales
+    pages/*.json       Pages supplémentaires créées depuis l'admin (1 fichier = 1 page)
     seo.json           Données structurées techniques (PAS éditées via le CMS)
   components/          Header, SiteNav, Faq, ContactSection, ServicePhoto, carrousel…
   layouts/Base.astro   Layout commun (head/SEO, header, nav, footer)
   lib/                 md.ts (markdown), jsonld.ts (données structurées), site.ts…
-  pages/               index, [service] (4 pages dépannage), renovation-vannes, mentions-legales
+  pages/               index, [service] (4 pages dépannage), renovation-vannes, mentions-legales,
+                       [...page] (pages supplémentaires), sitemap.xml.ts (sitemap auto)
 public/
   images/              Images du site (+ images/uploads = téléversements CMS)
-  admin/               Sveltia CMS (index.html + config.yml)
+  admin/               Sveltia CMS (index.html + config.yml) + guide.html (guide éditeur)
 netlify/functions/     auth.mjs + callback.mjs (OAuth GitHub du CMS)
 ```
 
 ## Configuration de l'authentification GitHub (à faire une fois)
 
-Le CMS écrit dans le dépôt `Jrenov/Website` via l'API GitHub. Il faut une **OAuth
+Le CMS écrit dans le dépôt `Jrenov/jrenov.net` via l'API GitHub. Il faut une **OAuth
 App GitHub** + deux variables d'environnement Netlify.
 
 ### 1. Créer l'OAuth App GitHub
@@ -64,7 +66,7 @@ Netlify → *Site settings → Environment variables* :
 ### 3. Donner accès à l'éditeur
 
 Pour que **Jean René** puisse se connecter, l'ajouter comme **collaborateur** du
-dépôt `Jrenov/Website` (GitHub → Settings → Collaborators) avec un accès en
+dépôt `Jrenov/jrenov.net` (GitHub → Settings → Collaborators) avec un accès en
 écriture. Il lui faut un compte GitHub.
 
 ## Déploiement Netlify
@@ -92,3 +94,15 @@ Comme le contenu est régénéré au build, les modifications faites dans le CMS
 (textes, FAQ, coordonnées) sont rendues en HTML statique **et** répercutées dans
 les données structurées (JSON-LD) — pas de désynchronisation entre l'affichage et
 le SEO.
+
+## Pages supplémentaires (créées depuis l'admin)
+
+- Collection CMS **« Pages supplémentaires »** (dossier `src/data/pages/`, un JSON par page).
+- Rendu par `src/pages/[...page].astro`, logique dans `src/lib/pages.ts`.
+- Champ `published` = brouillon / en ligne ; `linkPlacement` = menu du haut, pied de page ou aucun lien.
+- Les adresses des pages fixes sont **réservées** (`RESERVED` dans `src/lib/pages.ts` + `pattern` du champ `url`
+  dans `config.yml`) : une page qui tenterait de les réutiliser est ignorée au build (warning), le site
+  continue de se construire. **Si tu ajoutes une page fixe, ajoute son adresse aux deux endroits.**
+- Le sitemap (`/sitemap.xml`) est généré au build et inclut automatiquement les pages publiées.
+- Formulaire de contact de ces pages : Netlify Form `contact-pages`, avec un champ caché `page` (titre de la page).
+- `src/data/pages/exemple-page-modele.json` est un exemple **non publié**, à dupliquer.

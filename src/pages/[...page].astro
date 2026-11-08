@@ -1,0 +1,67 @@
+---
+/**
+ * Pages libres créées depuis l'administration (/admin → « Pages
+ * supplémentaires »). Voir src/lib/pages.ts.
+ */
+import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import PhoneButton from "../components/PhoneButton.astro";
+import ServicePhoto from "../components/ServicePhoto.astro";
+import ContactSection from "../components/ContactSection.astro";
+import { md } from "../lib/md.ts";
+import { breadcrumb, SITE_URL, stripMarkdown } from "../lib/jsonld.ts";
+import { pages, type CustomPage } from "../lib/pages.ts";
+
+export function getStaticPaths() {
+  return pages.map((p) => ({ params: { page: p.url }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: CustomPage };
+const canonical = `${SITE_URL}/${p.url}`;
+const description =
+  p.metaDescription?.trim() || stripMarkdown(p.intro ?? "").slice(0, 155) || p.title;
+const jsonLd = [
+  breadcrumb([
+    { name: "Accueil", item: `${SITE_URL}/` },
+    { name: p.title, item: canonical },
+  ]),
+];
+---
+
+<Base
+  title={p.metaTitle?.trim() || `${p.title} | Jrenov`}
+  description={description}
+  canonical={canonical}
+  current={`/${p.url}`}
+  jsonLd={jsonLd}
+  contactHref={p.showContactForm ? "#contact" : "/#contact"}
+>
+  <Breadcrumb slot="subnav" label={p.title} />
+
+  <section class="service-intro">
+    <h1>{p.title}</h1>
+    <Fragment set:html={md(p.intro)} />
+    {p.showCallButton && <PhoneButton />}
+  </section>
+
+  <ServicePhoto src={p.photo} alt={p.photoAlt} />
+
+  {(p.sections ?? []).map((s) => (
+    <>
+      <section class="presentation">
+        {s.heading && <h2>{s.heading}</h2>}
+        <Fragment set:html={md(s.text)} />
+      </section>
+      <ServicePhoto src={s.image} alt={s.imageAlt} />
+    </>
+  ))}
+
+  {p.showContactForm && (
+    <ContactSection
+      heading={p.contactHeading || "Contactez-nous"}
+      formName="contact-pages"
+      formHeading="Décrivez votre besoin"
+      source={p.title}
+    />
+  )}
+</Base>

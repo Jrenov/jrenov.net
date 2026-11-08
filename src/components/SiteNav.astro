@@ -1,4 +1,6 @@
 ---
+import { menuPages } from "../lib/pages.ts";
+
 interface Props {
   current?: string;
   contactHref?: string;
@@ -12,6 +14,8 @@ const items = [
   { href: "/serrurier-vannes", label: "Serrurier" },
   { href: "/debouchage-canalisation-vannes", label: "Débouchage canalisation" },
   { href: "/renovation-vannes", label: "Rénovation" },
+  // Pages créées dans l'admin avec « Lien dans le menu du haut »
+  ...menuPages.map((p) => ({ href: `/${p.url}`, label: p.menuLabel?.trim() || p.title })),
   { href: contactHref, label: "Contact" },
 ];
 ---

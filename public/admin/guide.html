@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Guide de l'administration — Jrenov</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <style>
+    :root {
+      --primary: #226d8c;
+      --primary-dark: #115e6e;
+      --accent: #f3920f;
+      --text: #2b2b2b;
+      --muted: #5c6670;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --ok-bg: #e8f5ee;
+      --ok: #1d7a46;
+      --warn-bg: #fff4e2;
+      --warn: #9a5a00;
+      --line: #e3e7ea;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      padding: 32px 16px 28px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 6px; font-size: 1.7rem; line-height: 1.25; }
+    header p { margin: 0; opacity: .9; }
+    .open-admin {
+      display: inline-block;
+      margin-top: 18px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 1.05rem;
+    }
+    .open-admin:hover { filter: brightness(1.05); }
+    main { max-width: 820px; margin: 0 auto; padding: 24px 16px 60px; }
+    nav.toc {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+      margin-bottom: 28px;
+    }
+    nav.toc strong { display: block; margin-bottom: 6px; color: var(--primary); }
+    nav.toc ol { margin: 0; padding-left: 1.3em; }
+    nav.toc a { color: var(--primary-dark); }
+    section {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+    h2 {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 1.35rem;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2 .num {
+      flex: 0 0 auto;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+    }
+    h3 { color: var(--primary-dark); font-size: 1.1rem; margin: 20px 0 6px; }
+    ol.steps { padding-left: 1.3em; margin: 8px 0; }
+    ol.steps > li { margin-bottom: 10px; padding-left: 4px; }
+    .btn {
+      display: inline-block;
+      border: 1px solid #c9d3d9;
+      background: #f2f5f7;
+      border-radius: 6px;
+      padding: 0 8px;
+      font-weight: 600;
+      font-size: .92em;
+      white-space: nowrap;
+    }
+    .note, .warn, .ok {
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 14px 0 4px;
+    }
+    .note { background: #eef6fa; border-left: 5px solid var(--primary); }
+    .ok   { background: var(--ok-bg); border-left: 5px solid var(--ok); }
+    .warn { background: var(--warn-bg); border-left: 5px solid var(--accent); }
+    .note p, .ok p, .warn p { margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .95em; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--primary-dark); }
+    code {
+      background: #f2f5f7;
+      border-radius: 5px;
+      padding: 1px 6px;
+      font-size: .9em;
+    }
+    .example {
+      background: #fbfcfd;
+      border: 1px dashed #c9d3d9;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      font-size: .95em;
+    }
+    .golden li { margin-bottom: 8px; }
+    .table-wrap { overflow-x: auto; }
+    footer { text-align: center; color: var(--muted); font-size: .9rem; padding: 0 16px 40px; }
+    @media (max-width: 560px) {
+      body { font-size: 17px; }
+      section { padding: 18px 16px; }
+      header h1 { font-size: 1.4rem; }
+    }
+    @media print {
+      body { background: #fff; font-size: 13pt; }
+      header { background: none; color: var(--text); padding: 0 0 10px; border-bottom: 2px solid var(--primary); }
+      .open-admin, nav.toc { display: none; }
+      section { box-shadow: none; border: 1px solid var(--line); break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Modifier le site Jrenov — le guide pas à pas</h1>
+    <p>Pour Jean René. Aucune connaissance technique nécessaire.</p>
+    <a class="open-admin" href="/admin/" target="_blank" rel="noopener">Ouvrir l'administration →</a>
+  </header>
+
+  <main>
+    <nav class="toc" aria-label="Sommaire">
+      <strong>Sommaire</strong>
+      <ol>
+        <li><a href="#principe">Comment ça marche (à lire une fois)</a></li>
+        <li><a href="#connexion">Se connecter</a></li>
+        <li><a href="#ecran">Se repérer dans l'écran</a></li>
+        <li><a href="#texte">Modifier un texte</a></li>
+        <li><a href="#photo">Ajouter ou changer une photo</a></li>
+        <li><a href="#nouvelle-page">Créer une nouvelle page</a></li>
+        <li><a href="#gerer-page">Cacher, modifier ou supprimer une page</a></li>
+        <li><a href="#mise-en-forme">Gras, liens et listes</a></li>
+        <li><a href="#google">Bien apparaître sur Google</a></li>
+        <li><a href="#probleme">En cas de souci</a></li>
+        <li><a href="#regles">Les 5 règles d'or</a></li>
+      </ol>
+    </nav>
+
+    <!-- 1 -->
+    <section id="principe">
+      <h2><span class="num">1</span> Comment ça marche</h2>
+      <p>Le site a un <strong>espace d'administration</strong>, à l'adresse
+        <strong>jrenov.net/admin</strong>. C'est là que tu modifies les textes, les photos
+        et que tu crées de nouvelles pages, un peu comme si tu remplissais un formulaire.</p>
+      <p>Le principe est toujours le même :</p>
+      <ol class="steps">
+        <li>Tu <strong>ouvres</strong> la page à modifier.</li>
+        <li>Tu <strong>changes</strong> ce que tu veux.</li>
+        <li>Tu cliques sur <span class="btn">Enregistrer</span> <em>(ou <span class="btn">Save</span> si l'écran est en anglais)</em>.</li>
+        <li>Tu attends <strong>2 minutes</strong> : le site se met à jour tout seul.</li>
+      </ol>
+      <div class="ok"><p>👍 <strong>Pas de panique :</strong> chaque modification est gardée en mémoire.
+        Si tu te trompes, Jules peut toujours revenir à la version d'avant. Tu ne peux rien « casser » pour de bon.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="connexion">
+      <h2><span class="num">2</span> Se connecter</h2>
+      <ol class="steps">
+        <li>Va sur <strong>jrenov.net/admin</strong> (ou clique le bouton orange en haut de ce guide).</li>
+        <li>Clique sur <span class="btn">Se connecter avec GitHub</span>.</li>
+        <li>Entre ton identifiant et ton mot de passe <strong>GitHub</strong>
+          <em>(c'est le compte créé avec Jules ; GitHub est le service qui garde une copie de sécurité du site)</em>.</li>
+        <li>La première fois, GitHub demande une autorisation : clique sur <span class="btn">Authorize</span>.</li>
+      </ol>
+      <div class="note"><p>💡 Astuce : ajoute <strong>jrenov.net/admin</strong> à tes favoris.
+        Une fois connecté, tu restes connecté sur cet ordinateur.</p></div>
+      <div class="warn"><p>🔒 Ne donne jamais ton mot de passe GitHub à quelqu'un d'autre, même par téléphone.</p></div>
+    </section>
+
+    <!-- 3 -->
+    <section id="ecran">
+      <h2><span class="num">3</span> Se repérer dans l'écran</h2>
+      <p>À gauche, tu as les <strong>rubriques</strong>. Clique sur une rubrique pour voir ce qu'elle contient.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Rubrique</th><th>Ce que tu y modifies</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Coordonnées &amp; marque</strong></td><td>Téléphone, e-mail, adresse, nom de l'entreprise (utilisés partout sur le site)</td></tr>
+          <tr><td><strong>Page d'accueil</strong></td><td>Titres, textes, cartes de services, questions fréquentes, avis clients, logos fournisseurs</td></tr>
+          <tr><td><strong>Pages de dépannage</strong></td><td>Plombier, Électricien, Serrurier, Débouchage : textes, questions fréquentes et photo</td></tr>
+          <tr><td><strong>Page Rénovation</strong></td><td>Textes et photos des réalisations</td></tr>
+          <tr><td><strong>Pages supplémentaires</strong> 🆕</td><td><strong>Tes propres pages</strong> : tu peux en créer autant que tu veux</td></tr>
+          <tr><td><strong>Mentions légales</strong></td><td>SIRET, hébergeur, date de mise à jour</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Sous chaque case à remplir, un <strong>petit texte gris</strong> explique à quoi elle sert. Lis-le en cas de doute.</p>
+    </section>
+
+    <!-- 4 -->
+    <section id="texte">
+      <h2><span class="num">4</span> Modifier un texte</h2>
+      <p><strong>Exemple :</strong> changer la réponse à une question fréquente de la page Plombier.</p>
+      <ol class="steps">
+        <li>Clique sur <strong>Pages de dépannage</strong>, puis sur <strong>Plombier</strong>.</li>
+        <li>Descends jusqu'à <strong>Questions fréquentes</strong> et clique sur la question à changer.</li>
+        <li>Modifie le texte dans la case.</li>
+        <li>Clique sur <span class="btn">Enregistrer</span> en haut de l'écran.</li>
+        <li>Attends 2 minutes, puis ouvre <strong>jrenov.net/plombier-vannes</strong> pour vérifier.</li>
+      </ol>
+      <h3>Ajouter, enlever ou déplacer un élément d'une liste</h3>
+      <p>Les listes (questions, avis clients, photos, étapes…) ont :</p>
+      <ul>
+        <li>un bouton <span class="btn">+ Ajouter</span> pour en créer un nouveau ;</li>
+        <li>une <strong>croix</strong> ou une <strong>poubelle</strong> pour en supprimer un ;</li>
+        <li>des <strong>flèches</strong> ou une <strong>poignée</strong> (⋮⋮) pour changer l'ordre.</li>
+      </ul>
+    </section>
+
+    <!-- 5 -->
+    <section id="photo">
+      <h2><span class="num">5</span> Ajouter ou changer une photo</h2>
+      <ol class="steps">
+        <li>Ouvre la page voulue (par ex. <strong>Pages de dépannage → Plombier</strong>).</li>
+        <li>Trouve la case <strong>Photo de la page</strong> et clique dessus.</li>
+        <li>Choisis <span class="btn">Téléverser</span> / <span class="btn">Upload</span>, puis la photo sur ton ordinateur ou ton téléphone.</li>
+        <li>Remplis la case <strong>Description de la photo</strong> avec une courte phrase.
+          <div class="example">Ex. : « Remplacement d'un chauffe-eau dans une maison à Vannes »</div></li>
+        <li><span class="btn">Enregistrer</span>.</li>
+      </ol>
+      <div class="note"><p>💡 <strong>Pas besoin de réduire tes photos</strong> : le site les redimensionne tout seul.
+        Préfère des photos <strong>nettes</strong>, <strong>prises à l'horizontale</strong>, et de vrais chantiers à toi.</p></div>
+      <div class="warn"><p>📷 N'utilise que <strong>tes propres photos</strong> (pas d'images trouvées sur Internet : elles ont des droits d'auteur).
+        Évite aussi qu'on reconnaisse un client, une plaque d'immatriculation ou un numéro de rue sans son accord.</p></div>
+      <p>Pour la <strong>page Rénovation</strong> : ouvre <strong>Réalisations</strong>, choisis le bloc
+        (Plomberie, Intérieur ou Extérieur), puis dans <strong>Photos du carrousel</strong> clique sur
+        <span class="btn">+ Ajouter</span> et donne une légende à chaque photo.</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="nouvelle-page">
+      <h2><span class="num">6</span> Créer une nouvelle page 🆕</h2>
+      <p>Tu peux maintenant créer tes propres pages, par exemple
+        « Pose de cuisine à Vannes », « Nos tarifs » ou « Salle de bain clé en main ».</p>
+
+      <h3>Étape par étape</h3>
+      <ol class="steps">
+        <li>Clique sur la rubrique <strong>Pages supplémentaires</strong>.</li>
+        <li>Clique sur <span class="btn">Nouvelle page</span> (ou <span class="btn">New</span>).
+          <br><em>Astuce : tu peux aussi ouvrir la « Page modèle (exemple) » et la <strong>dupliquer</strong> pour partir d'un exemple déjà rempli
+          — pense alors à changer le titre <strong>et l'adresse</strong>.</em></li>
+        <li><strong>Titre de la page</strong> : le grand titre en haut.
+          <div class="example">Ex. : <strong>Pose de cuisine à Vannes</strong></div></li>
+        <li><strong>Adresse de la page</strong> : ce qui viendra après <code>jrenov.net/</code>.
+          Uniquement des <strong>minuscules sans accent</strong> et des <strong>tirets</strong> à la place des espaces.
+          <div class="example">Ex. : <code>pose-cuisine-vannes</code> → la page sera sur <strong>jrenov.net/pose-cuisine-vannes</strong></div>
+          Si l'adresse n'est pas acceptée, un message rouge te dit pourquoi : corrige-la simplement.</li>
+        <li><strong>Où mettre un lien vers cette page ?</strong>
+          <ul>
+            <li><em>Dans le menu du haut</em> : pour une page importante (garde-en peu, sinon le menu devient chargé) ;</li>
+            <li><em>En bas de page</em> : pour une page secondaire (ex. « Nos tarifs ») ;</li>
+            <li><em>Nulle part</em> : si tu veux juste envoyer le lien à un client.</li>
+          </ul></li>
+        <li><strong>Nom court pour le lien</strong> (facultatif) : ce qui s'affiche dans le menu.
+          <div class="example">Ex. : <strong>Cuisine</strong> plutôt que « Pose de cuisine à Vannes »</div></li>
+        <li><strong>Texte d'introduction</strong> : 2 ou 3 phrases pour présenter le sujet.</li>
+        <li><strong>Photo principale</strong> (facultatif).</li>
+        <li><strong>Parties de la page</strong> : clique sur <span class="btn">+ Ajouter Partie</span> autant de fois que nécessaire.
+          Chaque partie a un titre, un texte et une photo (tout est facultatif).
+          <div class="example">Ex. : « Ce que je fais » → « Comment ça se passe » → « Mes dernières réalisations »</div></li>
+        <li>Choisis si tu veux le <strong>bouton « Appeler »</strong> et le <strong>formulaire de contact</strong> (conseillé : oui aux deux).</li>
+        <li>Coche <strong>Page en ligne</strong> quand tu es prêt à la montrer.
+          <em>Tant que ce n'est pas coché, la page est un <strong>brouillon</strong> invisible sur le site.</em></li>
+        <li><span class="btn">Enregistrer</span>, attends 2 minutes, et va voir ta page sur <strong>jrenov.net/ton-adresse</strong>. 🎉</li>
+      </ol>
+      <div class="ok"><p>✅ La nouvelle page est <strong>ajoutée automatiquement</strong> au plan du site envoyé à Google : rien d'autre à faire.</p></div>
+      <div class="note"><p>💬 Les messages envoyés par le formulaire d'une page supplémentaire arrivent au même endroit que les autres,
+        avec le <strong>nom de la page</strong> d'où ils viennent.</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="gerer-page">
+      <h2><span class="num">7</span> Cacher, modifier ou supprimer une page</h2>
+      <ul>
+        <li><strong>Modifier</strong> : Pages supplémentaires → clique sur la page → change → <span class="btn">Enregistrer</span>.</li>
+        <li><strong>Cacher temporairement</strong> (ex. une offre saisonnière) : décoche <strong>Page en ligne</strong> et enregistre.
+          La page disparaît du site mais reste prête dans l'admin. Recoche plus tard pour la remettre.</li>
+        <li><strong>Supprimer définitivement</strong> : ouvre la page, puis <span class="btn">Supprimer</span> / <span class="btn">Delete</span>.
+          <em>Préfère « cacher » si tu n'es pas sûr.</em></li>
+      </ul>
+      <div class="warn"><p>⚠️ <strong>Évite de changer l'adresse d'une page déjà en ligne</strong> : Google et tes clients connaissent l'ancienne,
+        qui ne marcherait plus. Si c'est vraiment nécessaire, préviens Jules.</p></div>
+      <p>Les pages d'origine (Accueil, Plombier, Électricien, Serrurier, Débouchage, Rénovation) ne peuvent pas être supprimées :
+        c'est voulu, ce sont les pages qui t'amènent le plus de clients.</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="mise-en-forme">
+      <h2><span class="num">8</span> Gras, liens et listes</h2>
+      <p>Certaines cases ont une <strong>petite barre d'outils</strong> au-dessus (comme dans Word) :</p>
+      <ul>
+        <li><strong>B</strong> : met le texte sélectionné <strong>en gras</strong> ;</li>
+        <li><strong>🔗</strong> : transforme le texte sélectionné en <strong>lien</strong> (colle l'adresse quand on te la demande) ;</li>
+        <li><strong>• liste</strong> : crée une liste à puces.</li>
+      </ul>
+      <p>Pour passer une ligne et faire un nouveau paragraphe : appuie <strong>deux fois</strong> sur <span class="btn">Entrée</span>.</p>
+      <div class="note"><p>💡 Pour faire un lien vers une autre page du site, écris simplement son adresse en commençant par <code>/</code>,
+        par exemple <code>/plombier-vannes</code>.</p></div>
+    </section>
+
+    <!-- 9 -->
+    <section id="google">
+      <h2><span class="num">9</span> Bien apparaître sur Google</h2>
+      <p>Quelques habitudes simples qui aident vraiment :</p>
+      <ul>
+        <li><strong>Mets la ville dans le titre</strong> : « Pose de cuisine <strong>à Vannes</strong> » plutôt que « Pose de cuisine ».</li>
+        <li><strong>Écris comme tu parles à un client</strong> : les mots qu'il taperait dans Google (fuite, chauffe-eau, porte claquée…).</li>
+        <li><strong>Une page = un sujet.</strong> Mieux vaut deux pages claires qu'une page fourre-tout.</li>
+        <li><strong>Pas de copier-coller</strong> d'un autre site, ni d'une de tes pages vers une autre : Google n'aime pas les textes en double.</li>
+        <li>Les cases <strong>« Titre pour Google »</strong> et <strong>« Description pour Google »</strong> sont facultatives.
+          Si tu les remplis : titre court (moins de 60 caractères), description d'une ou deux phrases qui donne envie d'appeler.</li>
+        <li>Remplis toujours la <strong>description des photos</strong>.</li>
+      </ul>
+    </section>
+
+    <!-- 10 -->
+    <section id="probleme">
+      <h2><span class="num">10</span> En cas de souci</h2>
+      <h3>« J'ai enregistré mais je ne vois pas le changement sur le site »</h3>
+      <ol class="steps">
+        <li>Attends <strong>2 à 3 minutes</strong>.</li>
+        <li>Recharge la page : sur ordinateur <span class="btn">Ctrl</span> + <span class="btn">F5</span>
+          (sur Mac <span class="btn">Cmd</span> + <span class="btn">Maj</span> + <span class="btn">R</span>) ; sur téléphone, ferme et rouvre la page.</li>
+        <li>Toujours rien après 10 minutes ? Envoie un message à Jules avec ce que tu as modifié.</li>
+      </ol>
+      <h3>« Le bouton Enregistrer ne marche pas »</h3>
+      <p>Regarde s'il y a une <strong>case entourée de rouge</strong> : il manque une information ou elle n'est pas au bon format.
+        Le message en rouge explique quoi corriger.</p>
+      <h3>« Ma nouvelle page n'apparaît pas »</h3>
+      <p>Vérifie que <strong>Page en ligne</strong> est bien cochée, puis attends 2 minutes.</p>
+      <h3>« J'ai supprimé / modifié quelque chose par erreur »</h3>
+      <p>Pas grave : <strong>ne touche plus à rien</strong> et préviens Jules. Toutes les versions précédentes sont conservées et peuvent être restaurées.</p>
+      <h3>« On me demande de me reconnecter »</h3>
+      <p>Clique à nouveau sur <span class="btn">Se connecter avec GitHub</span>. Si tu as oublié ton mot de passe GitHub,
+        utilise « Forgot password? » sur la page de connexion GitHub.</p>
+    </section>
+
+    <!-- 11 -->
+    <section id="regles">
+      <h2><span class="num">11</span> Les 5 règles d'or</h2>
+      <ol class="golden">
+        <li><strong>Toujours cliquer sur Enregistrer</strong> avant de quitter, sinon les modifications sont perdues.</li>
+        <li><strong>Attendre 2 minutes</strong> avant de vérifier sur le site.</li>
+        <li><strong>Le numéro de téléphone</strong> se change uniquement dans <em>Coordonnées &amp; marque</em> (il se met à jour partout).
+          Préviens Jules si tu le changes, pour mettre à jour ta fiche Google.</li>
+        <li><strong>Dans le doute, cache plutôt que supprimer.</strong></li>
+        <li><strong>Une question ?</strong> Demande à Jules : il vaut mieux demander que de rester bloqué.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    Guide de l'administration du site Jrenov — à imprimer si besoin (Ctrl + P).
+  </footer>
+</body>
+</html>

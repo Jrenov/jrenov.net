@@ -4,8 +4,10 @@ interface Props {
   heading: string;
   formName: string;
   formHeading: string;
+  /** Page d'origine, transmise avec le message (utile si plusieurs pages partagent un formulaire). */
+  source?: string;
 }
-const { heading, formName, formHeading } = Astro.props;
+const { heading, formName, formHeading, source } = Astro.props;
 ---
 
 <section id="contact" class="contact">
@@ -15,6 +17,7 @@ const { heading, formName, formHeading } = Astro.props;
       <h3>{formHeading}</h3>
       <form name={formName} method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value={formName} />
+        {source && <input type="hidden" name="page" value={source} />}
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" required aria-required="true" />
         <label for="email">Email :</label>
